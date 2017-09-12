@@ -3,8 +3,9 @@ colorscheme molokai
 " Make Vim more useful
 if has('vim_starting')
     set nocompatible
-    set runtimepath+=~/.vim/bundle/neobundle.vim/
 endif
+
+set runtimepath+=~/.vim/bundle/neobundle.vim/
 
 " Centralize backups, swapfiles and undo history
 set backupdir=~/.vim/backups
