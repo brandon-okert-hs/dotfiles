@@ -1,11 +1,37 @@
 colorscheme molokai
 
-" Make Vim more useful
-if has('vim_starting')
-    set nocompatible
+if &compatible
+  set nocompatible
+endif
+set runtimepath+=/Users/brandon.okert/.vim/bundles/repos/github.com/Shougo/dein.vim
+
+if dein#load_state('/Users/brandon.okert/.vim/bundles')
+  call dein#begin('/Users/brandon.okert/.vim/bundles')
+
+  call dein#add('/Users/brandon.okert/.vim/bundles/repos/github.com/Shougo/dein.vim')
+
+  call dein#add('Shougo/neosnippet.vim')
+  call dein#add('Shougo/neosnippet-snippets')
+
+  call dein#add('tpope/vim-fugitive')
+  call dein#add('Shougo/neocomplcache.vim')
+  call dein#add('tomtom/tlib_vim')
+  call dein#add('MarcWeber/vim-addon-mw-utils')
+  call dein#add('pangloss/vim-javascript')
+  call dein#add('groenewege/vim-less')
+  call dein#add('plasticboy/vim-markdown')
+  call dein#add('derekwyatt/vim-scala')
+
+  call dein#end()
+  call dein#save_state()
 endif
 
-set runtimepath+=~/.vim/bundle/neobundle.vim/
+filetype plugin indent on
+syntax enable
+
+if dein#check_install()
+  call dein#install()
+endif
 
 " Centralize backups, swapfiles and undo history
 set backupdir=~/.vim/backups
@@ -13,37 +39,6 @@ set directory=~/.vim/swaps
 if exists("&undodir")
   set undodir=~/.vim/undo
 endif
-
-" Setup Neobundle
-call neobundle#begin(expand('~/.vim/bundle/'))
-NeoBundleFetch 'Shougo/neobundle.vim'
-
-" Bundles here:
-NeoBundle 'tpope/vim-fugitive'
-NeoBundle 'Lokaltog/vim-easymotion'
-NeoBundle 'Shougo/vimshell.vim'
-NeoBundle 'Shougo/neocomplcache.vim'
-NeoBundle 'kien/ctrlp.vim'
-NeoBundle 'Lokaltog/powerline'
-NeoBundle 'scrooloose/nerdtree'
-NeoBundle 'Shougo/vimshell.vim'
-NeoBundle 'scrooloose/syntastic'
-NeoBundle 'mattn/emmet-vim'
-NeoBundle 'tomtom/tlib_vim'
-NeoBundle 'MarcWeber/vim-addon-mw-utils'
-NeoBundle 'garbas/vim-snipmate'
-NeoBundle 'honza/vim-snippets'
-NeoBundle 'jelera/vim-javascript-syntax'
-NeoBundle 'pangloss/vim-javascript'
-NeoBundle 'groenewege/vim-less'
-NeoBundle 'plasticboy/vim-markdown'
-NeoBundle 'derekwyatt/vim-scala'
-NeoBundle 'kennethzfeng/vim-raml.git'
-
-" Remaining Neobundle setup
-call neobundle#end()
-filetype plugin indent on
-NeoBundleCheck
 
 " Neocomplete config
 let g:acp_enableAtStartup = 0
