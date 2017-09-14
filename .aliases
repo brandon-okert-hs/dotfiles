@@ -7,6 +7,15 @@ alias g="git"
 alias denv='eval $(docker-machine env default)'
 alias docker-nuke='docker rm -f $(docker ps -a -q)'
 
+if [[ "$(uname)" == 'Darwin' ]]; then
+  if [ "$(command -v mvim)" == "" ]; then
+    echo "You need macvim for better vim support (brew install macvim)"
+  else
+    alias vim='mvim -v'
+  fi
+fi
+
+
 # Detect which `ls` flavor is in use
 if ls --color > /dev/null 2>&1; then # GNU `ls`
 	colorflag="--color"
