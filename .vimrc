@@ -3,12 +3,12 @@ colorscheme molokai
 if &compatible
   set nocompatible
 endif
-set runtimepath+=/Users/brandon.okert/.vim/bundles/repos/github.com/Shougo/dein.vim
+set runtimepath+=~/.vim/bundles/repos/github.com/Shougo/dein.vim
 
-if dein#load_state('/Users/brandon.okert/.vim/bundles')
-  call dein#begin('/Users/brandon.okert/.vim/bundles')
+if dein#load_state('~/.vim/bundles')
+  call dein#begin('~/.vim/bundles')
 
-  call dein#add('/Users/brandon.okert/.vim/bundles/repos/github.com/Shougo/dein.vim')
+  call dein#add('~/.vim/bundles/repos/github.com/Shougo/dein.vim')
 
   call dein#add('Shougo/neosnippet.vim')
   call dein#add('Shougo/neosnippet-snippets')

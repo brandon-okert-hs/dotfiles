@@ -7,15 +7,42 @@ if [[ "${unamestr}" == 'Linux' ]]; then
 fi
 
 if [[ "${unamestr}" == 'Darwin' ]]; then
-  if [ ! -e '/etc/sysctl.conf' ]; then
+  if [ ! -e '/Library/LaunchDaemons/limit.maxfiles.plist' ]; then
     echo "Need sudo password to update maxfiles and maxfilesperproc for osx"
-    echo kern.maxfiles=65536 | sudo tee -a /etc/sysctl.conf
-    echo kern.maxfilesperproc=65536 | sudo tee -a /etc/sysctl.conf
-    sudo sysctl -w kern.maxfiles=65536
-    sudo sysctl -w kern.maxfilesperproc=65536
+sudo tee /Library/LaunchDaemons/limit.maxfiles.plist <<EOF
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN"
+        "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+  <dict>
+    <key>Label</key>
+    <string>limit.maxfiles</string>
+    <key>ProgramArguments</key>
+    <array>
+      <string>launchctl</string>
+      <string>limit</string>
+      <string>maxfiles</string>
+      <string>262144</string>
+      <string>524288</string>
+    </array>
+    <key>RunAtLoad</key>
+    <true/>
+    <key>ServiceIPC</key>
+    <false/>
+  </dict>
+</plist>
+EOF
+
+    sudo launchctl load -w /Library/LaunchDaemons/limit.maxfiles.plist
   fi
 
   ulimit -n 65536 65536
+fi
+
+if [ ! -e ~/.vim/bundles/repos/github.com/Shougo/dein.vim/README.md ]; then
+  echo "Installing vim tools, as this is the first time using dotfiles as this user"
+  curl -s https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > installer.sh
+  bash installer.sh ~/.vim/bundles > /dev/null 2>&1
 fi
 
 
