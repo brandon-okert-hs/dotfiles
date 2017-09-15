@@ -6,6 +6,19 @@ if [[ "${unamestr}" == 'Linux' ]]; then
   fi
 fi
 
+if [[ "${unamestr}" == 'Darwin' ]]; then
+  if [ ! -e '/etc/sysctl.conf' ]; then
+    echo "Need sudo password to update maxfiles and maxfilesperproc for osx"
+    echo kern.maxfiles=65536 | sudo tee -a /etc/sysctl.conf
+    echo kern.maxfilesperproc=65536 | sudo tee -a /etc/sysctl.conf
+    sudo sysctl -w kern.maxfiles=65536
+    sudo sysctl -w kern.maxfilesperproc=65536
+  fi
+
+  ulimit -n 65536 65536
+fi
+
+
 # Load the shell dotfiles, and then some:
 for file in ~/.{prompt,exports,aliases}; do
 	[ -r "$file" ] && [ -f "$file" ] && source "$file";
