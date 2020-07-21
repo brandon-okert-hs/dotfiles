@@ -1,11 +1,20 @@
 # Sanity
 alias gi="git"
 alias gti="git"
+alias giut="git"
+alias gits="git s"
+alias guts="git s"
+alias bridge="echo skyline-bridge1.hootsuitemedia.com"
 
 # Shortcuts
 alias g="git"
-alias denv='eval $(docker-machine env default)'
-alias docker-nuke='docker rm -f $(docker ps -a -q)'
+alias k="kubectl"
+alias kd="kubectl --context=dev"
+alias ks="kubectl --context=staging"
+alias kp="kubectl --context=production"
+alias deqq="sed -e 's/\\\\\"/\\\"/g' | sed -e 's/\\\\\\\\n/\\\\n/g'"
+alias nice='pbpaste | jq "" | pbcopy'
+alias niceq='pbpaste | deqq | jq "" | pbcopy'
 
 if [[ "$(uname)" == 'Darwin' ]]; then
   if [ "$(command -v mvim)" == "" ]; then
