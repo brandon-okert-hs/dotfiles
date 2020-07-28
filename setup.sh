@@ -3,7 +3,10 @@ cp .aliases ~/.aliases
 cp .vimrc ~/.vimrc
 cp .osx ~/.osx
 cp .gitconfig ~/.gitconfig
-cp -r .vim ~/vim
+mkdir -p .vim/swaps
+mkdir -p .vim/backups
+mkdir -p .vim/undo
+cp -r .vim/colors ~/vim/colors
 
 
 echo "source ~/.aliases" >> ~/.zshrc

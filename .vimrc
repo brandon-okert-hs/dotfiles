@@ -1,3 +1,5 @@
+colorscheme molokai
+
 if &compatible
   set nocompatible
 endif
