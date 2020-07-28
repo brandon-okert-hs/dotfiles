@@ -1,9 +1,5 @@
 # Brandon's Dotfiles
 
-```bash
-cd ~
-curl -#L https://github.com/bcokert/dotfiles/tarball/master | tar -xzv --strip-components 1 --exclude={README.md,bootstrap.sh,LICENSE-MIT.txt}
-```
+Only tested on osx, but should mostly work for debian as well
 
-Based on the dotfiles by [Mathias Bynens](https://mathiasbynens.be/). Heavily modified, so use at your own risk!
-
+Updated to be based off of oh-my-zsh. First install oh-my-zsh, then clone this repo and run ./setup.sh

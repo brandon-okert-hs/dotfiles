@@ -105,9 +105,6 @@
 [branch]
   autosetuprebase = always
   autosetupmerge = always
-[user]
-  name = Brandon Okert
-  email = bcokert@gmail.com
 [rerere]
   enabled = true
 [rebase]
