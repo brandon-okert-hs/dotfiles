@@ -6,6 +6,7 @@ cp .gitconfig ~/.gitconfig
 mkdir -p .vim/swaps
 mkdir -p .vim/backups
 mkdir -p .vim/undo
+mkdir ~/vim
 cp -r .vim/colors ~/vim/colors
 
 
