@@ -5,7 +5,8 @@ cp .osx ~/.osx
 cp .gitconfig ~/.gitconfig
 cp -r .vim ~/.vim
 
-
+echo "If you don't have brew yet, make sure to install!"
+echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.zshrc
 echo "source ~/.aliases" >> ~/.zshrc
 echo "source <(kubectl completion zsh)" >> ~/.zshrc
 
