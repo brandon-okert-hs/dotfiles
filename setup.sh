@@ -3,9 +3,9 @@ cp .aliases ~/.aliases
 cp .vimrc ~/.vimrc
 cp .osx ~/.osx
 cp .gitconfig ~/.gitconfig
-mkdir -p .vim/swaps
-mkdir -p .vim/backups
-mkdir -p .vim/undo
+mkdir -p ~/.vim/swaps
+mkdir -p ~/.vim/backups
+mkdir -p ~/.vim/undo
 mkdir ~/vim
 cp -r .vim/colors ~/vim/colors
 
